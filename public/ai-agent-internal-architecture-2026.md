@@ -1,12 +1,12 @@
 ---
-title: "AIエージェントの中身を覗く——Memory・Tool・Skill、LLMとの協調の仕組み"
+title: AIエージェントの中身を覗く——Memory・Tool・Skill、LLMとの協調の仕組み
 tags:
   - アーキテクチャ
-  - AIエージェント
   - LLM
+  - AIエージェント
 private: false
-updated_at: '2026-04-18T20:46:48+09:00'
-id: 
+updated_at: '2026-04-18T20:56:11+09:00'
+id: 988d7888629696341dec
 organization_url_name: null
 slide: false
 ignorePublish: false
