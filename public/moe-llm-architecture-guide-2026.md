@@ -1,0 +1,312 @@
+---
+title: MoE徹底解剖：Dense模型の7倍速く学習できるLLMの仕組み
+tags:
+  - アーキテクチャ
+  - Transformer
+  - LLM
+  - MoE
+  - deepseek
+private: false
+updated_at: '2026-04-18T18:52:38+09:00'
+id: e377b58e259f19db1859
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+
+1.4兆パラメータのモデルを動かすのに、A100が何枚必要か考えたことある？
+
+2025年現在、LLMのパラメータ数はインフレ状態だ。GPT-4クラスは推定1.8兆。Llama 3.1は405B。このままだと、開発できるのはGPUを数千枚持つ巨大企業だけになってしまう。
+
+でも、DeepSeek-V3は671Bパラメータ持ちながら、推論時に動くのは37Bだけ。全体の五％ちょっと。それでGPT-4と肩を並べる性能を出している。
+
+このカラクリが **Mixture of Experts（MoE）** だ。
+
+この記事では、MoEがなぜ「巨大なモデルを安く動かせる」のか、その仕組みを図解付きで解説する。ルーターの動き、負荷分散の工夫、Denseとの比較、そして実際のコードまで触れるので、読み終わる頃には「MoEって要するにこういうこと」が腹落ちするはず。
+
+![MoEアーキテクチャ概要](https://raw.githubusercontent.com/lumichy/Zenn/main/images/moe-llm-architecture-guide-2026/cover-3d.png)
+
+## MoEって何か——30秒で説明する
+
+普通のTransformer（Denseモデル）は、すべてのトークンがすべてのパラメータを通る。100Bのモデルなら、1トークンあたり100Bぶんの計算が走る。
+
+MoEはここに「スイッチ」を入れる。
+
+「このトークンは専門家AとCに任せよう」「こっちは専門家BとDが得意分野だ」——こんな感じで、各トークンごとに使うパラメータの一部だけを活性化する。
+
+結果：総パラメータは巨大なまま、実際の計算量（FLOPs）は小さく抑えられる。これだけ。
+
+## ExpertとRouter——MoEの2つの構成要素
+
+MoEレイヤーは、大きく2つのパーツから成り立つ。
+
+### Expert
+
+Expertの正体は、ただのFFN（Feed-Forward Network）だ。DenseモデルのFFNと同じ構造。複数のFFNを並べただけ。
+
+例えば8 Expert構成なら、各レイヤーにFFNが8個ある。それぞれ独立した重みを持つ。
+
+### Router（ゲート）
+
+Routerが「どのExpertにトークンを送るか」を決める。実装は驚くほどシンプル。
+
+```
+logits = token_vector @ W_router   # (batch, num_experts)
+probs  = softmax(logits)           # 確率分布
+top_k = topk(probs, k=2)          # 上位2つを選択
+```
+
+線形変換 → ソフトマックス → Top-K選択。これだけ。
+
+実は私も最初「もっと賢い仕組みがあるんだろう」と思っていた。でも実際はこれだけ。シンプルさがMoEの強みでもあり、弱点でもある。
+
+![ルーティングの仕組み](https://raw.githubusercontent.com/lumichy/Zenn/main/images/moe-llm-architecture-guide-2026/architecture-excalidraw.png)
+
+### Top-KのKは何がいい？
+
+| K | 特徴 | 採用例 |
+|---|------|--------|
+| 1 | 最速だが精度が落ちやすい | Switch Transformer |
+| 2 | バランスが良い。主流 | Mixtral, DeepSeek |
+| 3+ | 精度は上がるが計算量増 | 一部研究で採用 |
+
+K=2がデファクトスタンダード。K=1は「Switch Transformer」で提案され、K=2はMixtralで広まった。
+
+## 素朴なMoEが抱える3つの問題
+
+ここまで聞くと「じゃあExpertを増やせばいいだけでは？」と思うかもしれない。でも実際はそう簡単にいかない。
+
+### 問題1：ルーティング崩壊
+
+Routerが特定のExpertばかり選ぶようになる。
+
+なぜか？——選ばれたExpertほど学習が進み、さらに選ばれやすくなる。選ばれないExpertは放置される。この正のフィードバックループが「ルーティング崩壊」だ。
+
+論文の引用：
+
+> 「ゲートネットワークは常に同じ少数のExpertに大きな重みを割り当てる状態に収束しがちである。この不均衡は自己強化的であり、優遇されたExpertほど速く訓練され、さらに選ばれやすくなる」
+
+### 問題2：メモリ問題
+
+総パラメータは巨大。Mixtral 8x7Bは47Bパラメータ持ち、推論時に全パラメータをVRAMに載せないといけない。アクティブなのは13Bなのに。
+
+「計算は13Bぶんで済むけど、メモリは47Bぶん必要」という非対称さが、デプロイ時の頭痛の種になる。
+
+### 問題3：ファインチューニングの難しさ
+
+MoEはファインチューニングで過学習しやすい。特に低リソース設定では、一部のExpertだけが更新されて偏りが悪化するパターンが多い。
+
+## 負荷分散の3つの解決策
+
+ルーティング崩壊に対して、研究コミュニティはいくつかの補助ロスを考案した。
+
+### 1. Load Balancing Loss
+
+最も一般的な手法。各Expertに均等にトークンが分配されるよう促す。
+
+```
+L_balance = N * sum(f_i * P_i)
+
+f_i = Expert_iに割り当てられたトークン割合
+P_i = Expert_iへのRouter確率の平均
+```
+
+f_iとP_iの内積を最小化する。両方が均一（1/N）のときに最小値をとる仕組み。
+
+### 2. Router Z-Loss
+
+ST-MoEで提案された。Routerのlogitsが大きくなりすぎるのを防ぐ。
+
+大規模学習では、float32の精度でもRouterの計算に丸め誤差が生じ、学習が不安定になることがある。Z-Lossはlogitsの大きさを制約して、これを防ぐ。
+
+### 3. Expert Capacity
+
+各Expertが処理できるトークン数の上限を設ける。
+
+```
+capacity = (tokens_per_batch / num_experts) × capacity_factor
+```
+
+capacity_factor=1なら完全に均等配分。1.25くらいにすると少し余裕ができ、オーバーフローを防ぐ。溢れたトークンは残差接続でそのまま次へ流す——計算なしで。
+
+## Shared Expert——DeepSeekの切り札
+
+2024年以降、MoEに「Shared Expert」という概念が入った。DeepSeek-MoEで導入され、DeepSeek-V2/V3に引き継がれている。
+
+アイデアは単純：すべてのトークンが必ず通るExpertを用意する。
+
+| タイプ | 動き | 役割 |
+|--------|------|------|
+| Shared Expert | 全トークンが常に通る | 共通知識の保持 |
+| Routed Expert | Routerが選択 | 専門知識の保持 |
+
+```
+Output = Routed_Expert_Output + Shared_Expert_Output
+```
+
+なぜこれが効くのか。
+
+Routed Expertだけだと、Expert間で重複する知識が生まれる。「日本語の文法」みたいな基礎的な知識が複数Expertに分散してしまう。Shared Expertがこれを一手に引き受けることで、Routed Expertは本当に専門的な知識だけに集中できるようになる。
+
+DeepSeek-V3の場合、256のRouted Expertと1つのShared Expertを組み合わせている。効率がいい。
+
+## Dense vs MoE——数字で比べる
+
+実際のモデルで比較してみよう。
+
+| 項目 | Mixtral 8x7B | Llama 2 70B | DeepSeek-V3 |
+|------|-------------|-------------|-------------|
+| 総パラメータ | 47B | 70B | 671B |
+| アクティブパラメータ | 13B | 70B | 37B |
+| アーキテクチャ | MoE | Dense | MoE |
+| コンテキスト長 | 32K | 4K | 128K |
+| ライセンス | Apache 2.0 | Llama License | MIT |
+
+Mixtralは13Bぶんの計算量で70B Denseに近い性能を出す。DeepSeek-V3に至っては37Bの計算量でGPT-4クラス。劇的な効率性だ。
+
+ただしメモリ使用量は総パラメータに比例する。47Bの重みをVRAMに載せる必要がある点は忘れないように。
+
+Switch Transformerの論文では、Denseモデルに対して**7倍の事前学習高速化**を報告している。同じ計算予算で7倍早く収束するという意味だ。
+
+## Mixtralのルーティング——意外な事実
+
+Mixtral 8x7BのRouterの挙動を分析した論文が出ている。結果が面白い。
+
+**Expertは「トピック」で専門化していない。**
+
+「数学はExpert 3」「コードはExpert 7」みたいな分担ではない。代わりに、構文的なパターンでルーティングされている。例えばPythonコード中の `self` というトークンは常に同じExpertに送られる。
+
+また、連続するトークンは同じExpertにルーティングされやすい。文脈の近いトークンは似たベクトルを持つから、自然と同じExpertが選ばれる。
+
+「専門家の分業」というより「似た仕事は同じ人に頼む」というノリ。意外じゃない？
+
+## クイックスタート：HuggingFaceでMoEを動かす
+
+試すだけなら5分でできる。
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_id = "mistralai/Mixtral-8x7B-v0.1"
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    torch_dtype="auto",
+    device_map="auto",       # 利用可能なGPUに自動配置
+)
+
+inputs = tokenizer("Mixture of Experts is", return_tensors="pt").to(model.device)
+outputs = model.generate(**inputs, max_new_tokens=64)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
+
+**動作環境の目安:**
+- VRAM: 90GB以上（FP16） / 24GB以上（4bit量子化）
+- 量子化するならbitsandbytesを使う:
+
+```python
+from transformers import BitsAndBytesConfig
+
+quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    quantization_config=quantization_config,
+    device_map="auto",
+)
+```
+
+4bitならRTX 3090 / 4090でも動く。ただし推論速度は落ちるので、本格的な利用ならA100かH100が欲しいところ。
+
+## MoEのシンプルな実装
+
+MoEレイヤーのコア部分だけ書くとこうなる。
+
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class MoELayer(nn.Module):
+    def __init__(self, d_model, d_ff, num_experts, top_k=2):
+        super().__init__()
+        self.num_experts = num_experts
+        self.top_k = top_k
+
+        # Router
+        self.gate = nn.Linear(d_model, num_experts, bias=False)
+
+        # Experts（N個の独立したFFN）
+        self.experts = nn.ModuleList([
+            nn.Sequential(
+                nn.Linear(d_model, d_ff),
+                nn.SiLU(),
+                nn.Linear(d_ff, d_model),
+            )
+            for _ in range(num_experts)
+        ])
+
+    def forward(self, x):
+        batch_size, seq_len, d_model = x.shape
+        x_flat = x.view(-1, d_model)  # (B*S, D)
+
+        # ルーティング
+        logits = self.gate(x_flat)                    # (B*S, N)
+        scores = F.softmax(logits, dim=-1)
+        topk_scores, topk_indices = scores.topk(self.top_k, dim=-1)
+
+        # Expertの出力を重み付きで集計
+        output = torch.zeros_like(x_flat)
+        for i in range(self.top_k):
+            for e in range(self.num_experts):
+                mask = (topk_indices[:, i] == e)
+                if mask.any():
+                    expert_out = self.experts[e](x_flat[mask])
+                    output[mask] += topk_scores[mask, i].unsqueeze(-1) * expert_out
+
+        return output.view(batch_size, seq_len, d_model)
+```
+
+この実装は分かりやすさ優先。本番ではトークンをExpertごとにバッチ化して効率化する（全Expertを逐次実行すると遅いので）。
+
+実際、本番の実装はもっと複雑だ。Expert並列の通信、All-to-Allのオーバーヘッド、トークン分散の偏り対策——運用面の工夫が大量にある。けど、核心はこれだけ。
+
+## メリットと制約——正直にまとめる
+
+### メリット
+
+- **計算効率**: アクティブパラメータだけで推論。13Bの計算量で70B級の性能
+- **学習高速化**: Switch TransformerはDense比7倍の事前学習速度
+- **スケーラビリティ**: Expertを増やせば総パラメータは伸びるが計算量は抑えられる
+
+### 制約
+
+- **メモリハンガリー**: 総パラメータすべてをVRAMに載せる必要がある。47Bの重みを積むけど13Bしか使わない、という非対称さ
+- **ファインチューニングが難しい**: 一部Expertだけが更新されて偏る。LoRAで対策する手法はあるが、Denseほど素直ではない
+- **通信オーバーヘッド**: 分散学習時にExpert間のAll-to-All通信がボトルネックになる
+- **学習の不安定性**: Routerのlogitsが発散しやすく、補助ロスのチューニングが必須
+
+正直、小規模なプロジェクトならDenseモデルのほうが扱いやすい。MoEが本領を発揮するのは「巨大な計算予算で最大の性能を引き出したい」場面だ。
+
+## まとめ
+
+MoEの本質を3行で：
+
+1. **すべてのパラメータを毎回使わない**——Routerが各トークンに適したExpertだけを選ぶ
+2. **巨大なモデルを小さな計算量で動かせる**——671Bのモデルを37Bの計算量で
+3. **ただしメモリは全パラメータ分必要**——計算とメモリのトレードオフが肝
+
+2025年現在、DeepSeek-V3、Qwen3、Grokなど主要なLLMがこぞってMoEを採用している。Dense限界のスケーリングに対する事実上の回答になりつつある。
+
+とはいえ、MoEは銀の弾丸ではない。メモリの壁、ファインチューニングの難しさ、分散学習の複雑さ——解決すべき課題はまだ多い。あなたのユースケースでDenseとMoE、どちらを選ぶか？それは「計算予算」「メモリ」「推論レイテンシ」の3変数で決まる。
+
+あなたはMoEを採用してみたいと思った？それとも「まだDenseでいいや」？その境界線がどこにあるか、ぜひコメントで教えてほしい。
+
+### 参考リンク
+
+- [Mixture-of-Experts (MoE) LLMs — Cameron R. Wolfe, Ph.D.](https://cameronrwolfe.substack.com/p/moe-llms)
+- [Mixture of Experts in Large Language Models — arXiv:2507.11181](https://arxiv.org/abs/2507.11181)
+- [Switch Transformer — arXiv:2101.03961](https://arxiv.org/abs/2101.03961)
+- [ST-MoE — arXiv:2202.08906](https://arxiv.org/abs/2202.08906)
+- [Mixtral of Experts — arXiv:2401.04088](https://arxiv.org/abs/2401.04088)
+- [DeepSeek-V2 — arXiv:2405.04434](https://arxiv.org/abs/2405.04434)
