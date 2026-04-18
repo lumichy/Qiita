@@ -16,7 +16,7 @@ ignorePublish: false
 
 # CLI vs MCP——AIエージェント時代に「最古のUI」が再注目される理由
 
-![カバー画像](./cli-vs-mcp-ai-agent-tool-2026/cover.png)
+![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/cli-vs-mcp-ai-agent-tool-2026/cover.png)
 
 飛書（Lark）、DingTalk、企業微信、Google、Stripe——2026年に入ってから、テック大手が次々とCLIツールをオープンソースで公開しています。
 
@@ -95,7 +95,7 @@ drawio-cli create --type flowchart --output diagram.png
 
 OSSだけでなく、公式CLIの整備も加速しています。
 
-![パイプライン](./cli-vs-mcp-ai-agent-tool-2026/pipeline.png)
+![パイプライン](https://raw.githubusercontent.com/lumichy/Qiita/main/public/cli-vs-mcp-ai-agent-tool-2026/pipeline.png)
 
 ```bash
 # GitHub CLI：リポジトリ作成からPRレビューまで
