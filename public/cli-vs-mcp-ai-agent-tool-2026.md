@@ -1,14 +1,14 @@
 ---
-title: "CLI vs MCP——AIエージェント時代に「最古のUI」が再注目される理由"
+title: CLI vs MCP——AIエージェント時代に「最古のUI」が再注目される理由
 tags:
   - CLI
-  - MCP
-  - AI
-  - AIエージェント
   - 自動化
+  - AI
+  - MCP
+  - AIエージェント
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-04-18T21:29:37+09:00'
+id: 552e8dbd6a72da8fb878
 organization_url_name: null
 slide: false
 ignorePublish: false
