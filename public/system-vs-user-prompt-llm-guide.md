@@ -1,14 +1,14 @@
 ---
-title: "システムプロンプトとユーザープロンプトの違い——LLMは2つの指示をどう区別しているのか"
+title: システムプロンプトとユーザープロンプトの違い——LLMは2つの指示をどう区別しているのか
 tags:
-  - LLM
-  - プロンプト
-  - ChatGPT
   - AI
+  - プロンプト
   - Transformer
+  - ChatGPT
+  - LLM
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-04-18T23:00:10+09:00'
+id: b5b6096b7e84a85ee089
 organization_url_name: null
 slide: false
 ignorePublish: false
