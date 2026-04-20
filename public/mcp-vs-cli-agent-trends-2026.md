@@ -1,14 +1,14 @@
 ---
 title: MCP vs CLI：Agentの万能インターフェースはどちらか？トップ開発者がCLI回帰する理由
 tags:
-  - MCP
   - CLI
-  - AIエージェント
-  - LLM
   - AI
+  - MCP
+  - LLM
+  - AIエージェント
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-04-20T23:31:00+09:00'
+id: 80ac0b5d76a06fbf9cd3
 organization_url_name: null
 slide: false
 ignorePublish: false
