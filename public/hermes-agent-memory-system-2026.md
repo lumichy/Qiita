@@ -1,14 +1,14 @@
 ---
-title: "Hermes Agentの記憶システムを完全図解：なぜこのAIは「忘れない」のか"
+title: Hermes Agentの記憶システムを完全図解：なぜこのAIは「忘れない」のか
 tags:
-  - AI
-  - AIエージェント
-  - Hermes
-  - LLM
   - メモリ
+  - AI
+  - hermes
+  - LLM
+  - AIエージェント
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-04-22T23:46:57+09:00'
+id: a6d16f3c2c27f552b3e0
 organization_url_name: null
 slide: false
 ignorePublish: false
