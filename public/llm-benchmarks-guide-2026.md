@@ -1,14 +1,14 @@
 ---
-title: "LLMベンチマーク21選を完全解説：AIの「成績表」を正しく読む方法"
+title: LLMベンチマーク21選を完全解説：AIの「成績表」を正しく読む方法
 tags:
-  - LLM
   - ベンチマーク
-  - AI
   - 機械学習
-  - GPT
+  - AI
+  - gpt
+  - LLM
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-04-26T11:28:15+09:00'
+id: 8b4a419f0c4abcd1879e
 organization_url_name: null
 slide: false
 ignorePublish: false
