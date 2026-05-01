@@ -1,14 +1,14 @@
 ---
-title: "Claude Opusの1786分の1!? DeepSeek V4のAPI価格がバグってるので全部計算してみた"
+title: Claude Opusの1786分の1!? DeepSeek V4のAPI価格がバグってるので全部計算してみた
 tags:
-  - DeepSeek
-  - LLM
   - API
   - AI
-  - pricing
+  - Pricing
+  - LLM
+  - deepseek
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-05-01T21:41:28+09:00'
+id: 0252c195b4d0df797592
 organization_url_name: null
 slide: false
 ignorePublish: false
