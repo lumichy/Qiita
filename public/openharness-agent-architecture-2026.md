@@ -1,14 +1,14 @@
 ---
-title: "OpenHarness：1.1万行のPythonでAI Agentの「黒箱」を丸裸にする"
+title: OpenHarness：1.1万行のPythonでAI Agentの「黒箱」を丸裸にする
 tags:
+  - Python
   - AI
   - Agent
-  - Python
   - LLM
   - OpenHarness
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-05-04T22:39:39+09:00'
+id: 71f9f6fca86510e46db7
 organization_url_name: null
 slide: false
 ignorePublish: false
