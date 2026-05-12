@@ -1,10 +1,10 @@
 ---
-title: Claude Mythos徹底解剖：50ドルで27年モノのゼロデイ脆弱性を発見、既存の防壁はなぜ崩壊したか
+title: "Claude Mythos徹底解剖：50ドルで27年モノのゼロデイ脆弱性を発見、既存の防壁はなぜ崩壊したか"
 tags:
   - Security
-  - 脆弱性
   - AI
   - Claude
+  - 脆弱性
 private: true
 updated_at: '2026-05-09T20:58:23+09:00'
 id: ca08963aa1a7b5e4554c
