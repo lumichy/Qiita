@@ -5,8 +5,8 @@ tags:
   - ChatGPT
   - LLM
   - promptengineering
-private: true
-updated_at: '2026-05-12T22:59:23+09:00'
+private: false
+updated_at: ""
 id: 345d8cf2438641a4f47b
 organization_url_name: null
 slide: false
