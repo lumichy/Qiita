@@ -1,14 +1,21 @@
 ---
-title: "MCP vs Skills：AIエージェントの「手足」と「脳」、なぜ今分離すべきなのか？"
+title: MCP vs Skills：AIエージェントの「手足」と「脳」、なぜ今分離すべきなのか？
 tags:
-  - MCP
   - AI
+  - プロンプト
+  - MCP
   - Agent
   - LLM
+<<<<<<< HEAD
   - Prompt
 private: false
 updated_at: ''
 id: null
+=======
+private: true
+updated_at: '2026-05-16T20:39:14+09:00'
+id: 9a76d579704434dcdbaa
+>>>>>>> ab8d308e6ff809b398f579cc2fc21e2d93f18195
 organization_url_name: null
 slide: false
 ignorePublish: false
