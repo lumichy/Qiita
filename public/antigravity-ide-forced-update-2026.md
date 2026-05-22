@@ -4,11 +4,11 @@ tags:
   - AI
   - IDE
   - Google
-  - ClaudeCode
-  - 開発ツール
+  - Claude
+  - 開発環境
 private: false
 updated_at: ''
-id: null
+id: ''
 organization_url_name: null
 slide: false
 ignorePublish: false
@@ -17,6 +17,7 @@ ignorePublish: false
 # GoogleのAI IDE「Antigravity」がある日突然チャットボットになった話——強制更新騒動を技術的に読み解く
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/antigravity-ide-forced-update-2026/cover.png)
+
 
 2026年5月20日の朝、いつも通りIDEを起動した開発者たちが目にしたのは——チャット入力ボックスだけだった。
 
