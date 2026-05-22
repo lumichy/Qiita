@@ -1,14 +1,14 @@
 ---
 title: GoogleのAI IDE「Antigravity」がある日突然チャットボットになった話——強制更新騒動を技術的に読み解く
 tags:
-  - AI
-  - IDE
   - Google
-  - Claude
   - 開発環境
+  - IDE
+  - AI
+  - Claude
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-05-22T23:05:55+09:00'
+id: 8748aeb59715c7d1d26a
 organization_url_name: null
 slide: false
 ignorePublish: false
