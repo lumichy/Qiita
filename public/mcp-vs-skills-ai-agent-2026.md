@@ -7,12 +7,13 @@ tags:
   - Agent
   - LLM
 private: false
-updated_at: '2026-05-16T20:39:14+09:00'
+updated_at: ''
 id: 9a76d579704434dcdbaa
 organization_url_name: null
 slide: false
 ignorePublish: false
 ---
+
 
 # MCP vs Skills：AIエージェントの「手足」と「脳」、なぜ今分離すべきなのか？
 
