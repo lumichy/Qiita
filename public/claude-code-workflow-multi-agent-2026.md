@@ -2,13 +2,13 @@
 title: MCPとSkillsに続く第3の革命：Claude Code WorkflowがultraworkでAgentをコードに焼き付ける
 tags:
   - AI
-  - claudecode
+  - Workflow
   - Agent
   - LLM
-  - workflow
+  - ClaudeCode
 private: false
-updated_at: ''
-id: null
+updated_at: '2026-05-25T22:06:27+09:00'
+id: 1db8f575b9e97955c977
 organization_url_name: null
 slide: false
 ignorePublish: false
