@@ -2,13 +2,11 @@
 title: "登録不要で期間限定無料！XiaomiのオープンソースAI開発エージェント「MiMo Code」徹底解説"
 tags:
   - AI
-  - OpenCode
-  - Agent
   - CLI
-  - 開発ツール
+  - 開発環境
 private: false
-updated_at: ""
-id: null
+updated_at: ''
+id: ''
 organization_url_name: null
 slide: false
 ignorePublish: false
