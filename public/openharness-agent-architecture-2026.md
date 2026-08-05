@@ -7,7 +7,7 @@ tags:
   - LLM
   - OpenHarness
 private: false
-updated_at: '2026-05-04T22:39:39+09:00'
+updated_at: ''
 id: 71f9f6fca86510e46db7
 organization_url_name: null
 slide: false

@@ -7,7 +7,7 @@ tags:
   - AI
   - Claude
 private: false
-updated_at: '2026-05-22T23:05:55+09:00'
+updated_at: ''
 id: 8748aeb59715c7d1d26a
 organization_url_name: null
 slide: false
