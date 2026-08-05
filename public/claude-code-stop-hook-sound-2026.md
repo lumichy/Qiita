@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # Claude Codeの回答が終わったら音で通知！Stop Hookを使って作業効率を爆上げする方法

@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # A2A（Agent2Agent）プロトコル彻底解説：AIエージェント同士を繋ぐ新たな「HTTP」

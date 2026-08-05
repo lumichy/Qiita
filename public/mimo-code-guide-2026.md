@@ -9,7 +9,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 AIエージェントをローカルで動かしてコーディングさせたいけれど、「APIキーの取得やアカウント登録が面倒」「トークンコストが心配で気軽に試せない」と躊躇していませんか？

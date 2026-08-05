@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # Claude Fable 5 を9Bモデルに蒸留？ 100万トークンの超長文推理モデル「Qwythos-9B」を4GBのVRAMで動かす

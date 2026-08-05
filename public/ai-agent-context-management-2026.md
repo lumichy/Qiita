@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # 会話は作業領域、リポジトリは記憶領域——AIエージェント開発を破綻させないコンテキスト管理術
