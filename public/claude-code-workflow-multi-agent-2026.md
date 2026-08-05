@@ -11,7 +11,7 @@ updated_at: ''
 id: 1db8f575b9e97955c977
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # MCPとSkillsに続く第3の革命：Claude Code WorkflowがultraworkでAgentをコードに焼き付ける

@@ -11,7 +11,7 @@ updated_at: ''
 id: 552e8dbd6a72da8fb878
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # CLI vs MCP——AIエージェント時代に「最古のUI」が再注目される理由

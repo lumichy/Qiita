@@ -11,7 +11,7 @@ updated_at: ''
 id: f46c0e9a2dc06720471f
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # AI Skillの手書きガイド：Claude Codeで繰り返し使える「専門能力モジュール」を作る

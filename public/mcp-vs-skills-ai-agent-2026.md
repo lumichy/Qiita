@@ -11,7 +11,7 @@ updated_at: ''
 id: 9a76d579704434dcdbaa
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 

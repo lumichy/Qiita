@@ -11,7 +11,7 @@ updated_at: ''
 id: 0252c195b4d0df797592
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/deepseek-v4-pricing-cache-2026/cover.png)

@@ -11,7 +11,7 @@ updated_at: ''
 id: 8748aeb59715c7d1d26a
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # GoogleのAI IDE「Antigravity」がある日突然チャットボットになった話——強制更新騒動を技術的に読み解く

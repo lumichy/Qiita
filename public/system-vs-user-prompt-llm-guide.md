@@ -11,7 +11,7 @@ updated_at: ''
 id: b5b6096b7e84a85ee089
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # システムプロンプトとユーザープロンプトの違い——LLMは2つの指示をどう区別しているのか

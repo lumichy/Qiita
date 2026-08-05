@@ -11,7 +11,7 @@ updated_at: ''
 id: 80ac0b5d76a06fbf9cd3
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/mcp-vs-cli-agent-trends-2026/cover.png)
