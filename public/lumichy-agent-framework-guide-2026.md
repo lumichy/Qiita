@@ -7,11 +7,13 @@ tags:
   - OpenAI
   - Claude
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-08-10T20:03:11+09:00'
+id: a267b3148b914dce376a
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 # AIエージェントの仕組みを学ぶ・創る——軽量・透明な制御Harness「lumichy-agent」解説
