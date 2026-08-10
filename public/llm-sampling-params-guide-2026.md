@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: false
+ignorePublish: true
 ---
 
 # LLM推論パラメータ入門——Temperature・Top-K・Top-Pの仕組みと実践調参ガイド
