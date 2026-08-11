@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: true
+ignorePublish: false
 ---
 
 # オープンソースAI動画生成モデル「MiniMax H3」× ComfyUI 徹底解説ガイド——ローカル構築から実践動画生成まで
