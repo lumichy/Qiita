@@ -2,16 +2,18 @@
 title: オープンソースAI動画生成モデル「MiniMax H3」× ComfyUI 徹底解説ガイド——ローカル構築から実践動画生成まで
 tags:
   - AI
-  - ComfyUI
+  - comfyui
   - 動画生成
   - Python
   - 画像生成
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-08-11T18:45:27+09:00'
+id: d86f7efbed757e5f740f
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 # オープンソースAI動画生成モデル「MiniMax H3」× ComfyUI 徹底解説ガイド——ローカル構築から実践動画生成まで
