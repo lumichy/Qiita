@@ -11,7 +11,7 @@ updated_at: ''
 id: ''
 organization_url_name: null
 slide: false
-ignorePublish: true
+ignorePublish: false
 ---
 
 # 【緊急解説】DeepSeek衝撃の値上げ発表！“激安モデルの象徴”撤退で業界激震——2026年指定最新旗艦モデル価格徹底比較（GPT-5.6 / Claude Fable 5 / Gemini 3.6 / GLM 5.2 / Qwen3 / Kimi K3）
