@@ -1,17 +1,21 @@
 ---
-title: 【緊急解説】DeepSeek衝撃の値上げ発表！“激安モデルの象徴”撤退で業界激震——2026年指定最新旗艦モデル価格徹底比較（GPT-5.6 / Claude Fable 5 / Gemini 3.6 / GLM 5.2 / Qwen3 / Kimi K3）
+title: >-
+  【緊急解説】DeepSeek衝撃の値上げ発表！“激安モデルの象徴”撤退で業界激震——2026年指定最新旗艦モデル価格徹底比較（GPT-5.6 /
+  Claude Fable 5 / Gemini 3.6 / GLM 5.2 / Qwen3 / Kimi K3）
 tags:
   - AI
-  - DeepSeek
+  - deepseek
   - OpenAI
   - Claude
   - API
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-08-13T21:40:17+09:00'
+id: f0817b5ae756f4b3da18
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 # 【緊急解説】DeepSeek衝撃の値上げ発表！“激安モデルの象徴”撤退で業界激震——2026年指定最新旗艦モデル価格徹底比較（GPT-5.6 / Claude Fable 5 / Gemini 3.6 / GLM 5.2 / Qwen3 / Kimi K3）
