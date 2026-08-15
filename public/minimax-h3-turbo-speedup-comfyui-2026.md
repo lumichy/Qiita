@@ -1,17 +1,19 @@
 ---
 title: MiniMax-H3動画生成を50%以上高速化！Turbo LoRA×ComfyUIで830秒→375秒にする方法
 tags:
-  - ComfyUI
+  - comfyui
   - AI
-  - MiniMax
+  - Minimax
   - 動画生成
-  - LoRA
+  - LoRa
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-08-15T11:33:39+09:00'
+id: 6538f75ea72653b6e626
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/minimax-h3-turbo-speedup-comfyui-2026/cover.jpg)
