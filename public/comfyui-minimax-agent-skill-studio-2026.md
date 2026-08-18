@@ -1,17 +1,19 @@
 ---
-title: "ComfyUIのノード地獄から解放！MiniMax動画・画像生成を「Agent Skill」と「専用GUI」で誰でも扱えるようにした話"
+title: ComfyUIのノード地獄から解放！MiniMax動画・画像生成を「Agent Skill」と「専用GUI」で誰でも扱えるようにした話
 tags:
-  - ComfyUI
+  - comfyui
   - AI
-  - MiniMax
+  - Minimax
   - ClaudeCode
   - Python
 private: false
-updated_at: ''
-id: null
+updated_at: '2026-08-18T21:29:51+09:00'
+id: 3e3cb87e6d8c106c6e0e
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/comfyui-minimax-agent-skill-studio-2026/cover.png)
