@@ -1,17 +1,19 @@
 ---
-title: "【最速検証】Qwen3.8-27BをLlama.cppで動かす！16GB環境で自作Agentを完全自律実行させてみた"
+title: 【最速検証】Qwen3.8-27BをLlama.cppで動かす！16GB環境で自作Agentを完全自律実行させてみた
 tags:
   - Qwen
-  - llamacpp
+  - LlamaCpp
   - AIAgent
   - Python
   - LLM
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-19T12:52:49+09:00'
+id: e8d3792c545ec71ed10e
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![Qwen3.8-27B マルチモーダルLLM](https://raw.githubusercontent.com/lumichy/Qiita/main/public/qwen38-27b-llamacpp-lumichy-agent-eval-2026/cover.png)
