@@ -1,17 +1,19 @@
 ---
-title: "話題の謎AI「Ox Alpha」とは？100万トークン無料の衝撃と3つの利用方法"
+title: 話題の謎AI「Ox Alpha」とは？100万トークン無料の衝撃と3つの利用方法
 tags:
   - AI
   - LLM
   - OpenRouter
-  - OpenCode
+  - opencode
   - 生成AI
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-25T23:05:08+09:00'
+id: ec02e465f50aa9188df1
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/ox-alpha-review-2026/cover.png)
