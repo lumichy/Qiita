@@ -1,5 +1,5 @@
 ---
-title: "大道至簡：CodexやClaude Codeを超える極小AIエージェント「Pi」徹底解剖"
+title: 大道至簡：CodexやClaude Codeを超える極小AIエージェント「Pi」徹底解剖
 tags:
   - AI
   - LLM
@@ -7,11 +7,13 @@ tags:
   - Agent
   - TypeScript
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-27T22:07:33+09:00'
+id: 83dd2c87bebe0ecd9b96
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/pi-coding-agent-guide-2026/cover.png)
