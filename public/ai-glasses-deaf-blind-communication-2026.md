@@ -1,5 +1,5 @@
 ---
-title: "AIグラスで視覚と聴覚の断絶を繋ぐ：盲聾対話の成功例から学ぶ「実世界AI活用」の要点とヒント"
+title: AIグラスで視覚と聴覚の断絶を繋ぐ：盲聾対話の成功例から学ぶ「実世界AI活用」の要点とヒント
 tags:
   - AI
   - アクセシビリティ
@@ -7,11 +7,13 @@ tags:
   - マルチモーダル
   - 音声認識
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-09-06T11:46:12+09:00'
+id: 7996abebfaeca9477006
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/ai-glasses-deaf-blind-communication-2026/cover.png)
