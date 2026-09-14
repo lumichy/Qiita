@@ -1,5 +1,5 @@
 ---
-title: "AIと挑むCisco Packet Tracer：0から5ステップで構築するエンタープライズNW実践"
+title: AIと挑むCisco Packet Tracer：0から5ステップで構築するエンタープライズNW実践
 tags:
   - Cisco
   - Network
@@ -7,11 +7,13 @@ tags:
   - OSPF
   - AI
 private: false
-updated_at: ''
-id: ''
+updated_at: '2026-09-15T07:38:26+09:00'
+id: ff669691e369dcf1f158
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![AIと挑むCisco Packet Tracer](https://raw.githubusercontent.com/lumichy/Qiita/main/public/antigravity-packet-tracer-nw-2026/cover.png)
