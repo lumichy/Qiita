@@ -1,5 +1,5 @@
 ---
-title: "Unlimited-OCR-2で完全ローカルOCRワークベンチ構築：長文PDF・数式・表もVRAM一定で爆速解析"
+title: Unlimited-OCR-2で完全ローカルOCRワークベンチ構築：長文PDF・数式・表もVRAM一定で爆速解析
 tags:
   - OCR
   - Python
@@ -7,11 +7,13 @@ tags:
   - 機械学習
   - PyTorch
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-10-31T15:09:32+09:00'
+id: a34b3b905fa149171954
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/unlimited-ocr-2-workbench-2026/cover.png)
