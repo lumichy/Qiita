@@ -6,7 +6,7 @@ tags:
   - 自然言語処理
   - ChatGPT
   - Claude
-private: true
+private: false
 updated_at: '2026-11-07T19:06:05+09:00'
 id: fa746e98b5fa8f5e2326
 organization_url_name: null
