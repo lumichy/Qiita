@@ -1,5 +1,5 @@
 ---
-title: "なぜAIの文章は「正しいのに読みづらい」のか？最新論文が暴いた「AI臭」の正体"
+title: なぜAIの文章は「正しいのに読みづらい」のか？最新論文が暴いた「AI臭」の正体
 tags:
   - AI
   - LLM
@@ -7,11 +7,13 @@ tags:
   - ChatGPT
   - Claude
 private: true
-updated_at: ''
-id: null
+updated_at: '2026-11-07T19:06:05+09:00'
+id: fa746e98b5fa8f5e2326
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/why-ai-text-is-hard-to-read-2026/cover.png)
