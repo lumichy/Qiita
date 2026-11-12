@@ -1,5 +1,5 @@
 ---
-title: "日常写真から公的証明写真を自作するAIエージェントスキルを作った：スーツ着せ替えとコンビニ印刷まで一発完結"
+title: 日常写真から公的証明写真を自作するAIエージェントスキルを作った：スーツ着せ替えとコンビニ印刷まで一発完結
 tags:
   - AI
   - Python
@@ -7,11 +7,13 @@ tags:
   - Agent
   - LLM
 private: false
-updated_at: ''
-id: null
+updated_at: '2026-11-13T00:04:56+09:00'
+id: bab32bd5cd1d1363039c
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/id-photo-studio-ai-agent-skill-2026/cover.png)
