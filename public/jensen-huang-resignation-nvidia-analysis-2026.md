@@ -1,5 +1,5 @@
 ---
-title: "NVIDIAジェンスン・フアン電撃辞任：ジョブズやアルトマンのような「電撃復帰」はあるのか？"
+title: NVIDIAジェンスン・フアン電撃辞任：ジョブズやアルトマンのような「電撃復帰」はあるのか？
 tags:
   - NVIDIA
   - AI
@@ -7,11 +7,13 @@ tags:
   - GPU
   - LLM
 private: false
-updated_at: ''
-id: null
+updated_at: '2026-11-15T12:44:26+09:00'
+id: b14f421df09227b114ad
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/jensen-huang-resignation-nvidia-analysis-2026/cover.png)
