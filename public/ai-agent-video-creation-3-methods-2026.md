@@ -1,17 +1,19 @@
 ---
-title: "AIエージェントで動画を作る3つの方法：動画生成・Three.js・Blenderの使い分け"
+title: AIエージェントで動画を作る3つの方法：動画生成・Three.js・Blenderの使い分け
 tags:
   - AI
   - Agent
   - Blender
-  - Threejs
+  - threejs
   - 動画生成
 private: false
-updated_at: ''
-id: null
+updated_at: '2026-11-21T08:35:02+09:00'
+id: 39f24ea121c485027180
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ![AIエージェントで動画を作る3つのルート（動画生成・コード描画・Blender 3D）の使い分けイメージ](https://raw.githubusercontent.com/lumichy/Qiita/main/public/ai-agent-video-creation-3-methods-2026/cover.jpg)
